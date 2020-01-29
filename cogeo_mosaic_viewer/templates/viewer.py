@@ -277,7 +277,7 @@ def mosaic_template(
                     </label>
                     <label class='toggle-container'>
                         <input value="polygon" name='toggle-viz' type='radio' />
-                        <div title='3D Viz' class='toggle color-gray-dark-on-hover'><svg class='icon icon--l inline-block w18 h18'><use xlink:href='#icon-extrusion'/></div>
+                        <div title='3D Viz' class='toggle color-gray-dark-on-hover'><svg class='icon icon--l inline-block w18 h18'><use xlink:href='#icon-extrusion'/></svg></div>
                     </label>
                 </div>
 
@@ -403,7 +403,7 @@ def mosaic_template(
                 const url_params = Object.keys(params).map(i => `${{i}}=${{params[i]}}`).join('&')
                 let url = `{endpoint}/tilejson.json?${{url_params}}`
 
-                map.addSource('raster', {{ type: 'raster', url: url , tileSize: 256}})
+                map.addSource('raster', {{ type: 'raster', url: url }})
                 addLayer(vizType)
                 break
 
@@ -449,7 +449,7 @@ def mosaic_template(
         const url_params = Object.keys(params).map(i => `${{i}}=${{params[i]}}`).join('&')
         let url = `{endpoint}/tilejson.json?${{url_params}}`
 
-        map.addSource('raster', {{ type: 'raster', url: url, tileSize: 256}})
+        map.addSource('raster', {{ type: 'raster', url: url}})
         map.addLayer({{id: 'raster', type: 'raster', source: 'raster'}})
     }}
 
